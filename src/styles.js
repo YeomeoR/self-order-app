@@ -5,7 +5,10 @@ export const useStyles = makeStyles((theme) => ({
     height: '100vh',
     display: 'flex',
     flexDirection: 'column',
-  },
+    },
+    navy: {
+        background: '#003080',
+    },
   red: {
     backgroundColor: '#ff2040',
     color: '#fff',
@@ -23,9 +26,30 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   green: {
-    backgroundCOlor: 'green',
+    backgroundColor: 'green',
   },
   largeLogo: {
-    height: 100,
-  },
+      height: 100,
+      margin: '1rem',
+      borderRadius: 20,
+    },
+  logo: {
+      height: 50,
+      margin: '1rem',
+      borderRadius: 20,
+    },
+    cards: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    card: {
+        margin: 10,
+    },
+    space: {
+        padding: 10,
+    },
+    media: {
+        width: 200,
+    },
 }));

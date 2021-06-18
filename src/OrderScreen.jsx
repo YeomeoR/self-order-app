@@ -56,16 +56,16 @@ export default function OrderScreen() {
                 <Alert severity="error">{error}</Alert>
               ) : (
                 <>
-                  <ListItem button>
+                  <ListItem onClick={() => categoryClickHandler('')} button>
                     <Logo></Logo>
                   </ListItem>
                   {categories.map((category) => (
                     <ListItem
-                      key={category.name}
                       button
+                      key={category.name}
                       onClick={() => categoryClickHandler(category.name)}
                     >
-                      <Avatar src={category.image} alt={category.name} />
+                      <Avatar alt={category.name} src={category.image} />
                     </ListItem>
                   ))}
                 </>
@@ -89,14 +89,17 @@ export default function OrderScreen() {
               ) : (
                 products.map((product) => (
                   <Grid item md={6}>
-                    <Card style={styles.card}>
+                    <Card
+                      className={styles.card}
+                      //   onClick={() => productClickHandler(product)}
+                    >
                       <CardActionArea>
                         <CardMedia
                           component="img"
                           alt={product.name}
                           image={product.image}
                           className={styles.media}
-                        ></CardMedia>
+                        />
                       </CardActionArea>
                       <CardContent>
                         <Typography
@@ -109,20 +112,18 @@ export default function OrderScreen() {
                         </Typography>
                         <Box className={styles.cardFooter}>
                           <Typography
-                            gutterBottom
                             variant="body2"
-                            color="textPrimary"
+                            color="textSecondary"
                             component="p"
                           >
                             {product.calorie} Cal
                           </Typography>
                           <Typography
-                            gutterBottom
                             variant="body2"
                             color="textPrimary"
                             component="p"
                           >
-                            £ {product.price} 
+                            ${product.price}
                           </Typography>
                         </Box>
                       </CardContent>

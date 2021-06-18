@@ -24,16 +24,16 @@ const Product = mongoose.model(
   'products',
   new mongoose.Schema({
     name: String,
-    category: String,
     description: String,
+    image: String,
     price: Number,
     calorie: Number,
-    image: String,
+    category: String,
   }),
 );
 
-// create a seeder for products
 app.get('/api/products/seed', async (req, res) => {
+  await Product.remove({});
   const products = await Product.insertMany(data.products);
   res.send({ products });
 });

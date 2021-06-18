@@ -3,9 +3,9 @@ import {
   CATEGORY_LIST_REQUEST,
   CATEGORY_LIST_FAIL,
   CATEGORY_LIST_SUCCESS,
-  PRODUCTS_LIST_REQUEST,
-  PRODUCTS_LIST_SUCCESS,
-  PRODUCTS_LIST_FAIL,
+  PRODUCT_LIST_REQUEST,
+  PRODUCT_LIST_SUCCESS,
+  PRODUCT_LIST_FAIL,
 } from './constants';
 import axios from 'axios'
 
@@ -36,18 +36,17 @@ export const listCategories = async (dispatch) => {
 }
 
 export const listProducts = async (dispatch, categoryName = '') => {
-    dispatch({ type: PRODUCTS_LIST_REQUEST })
-    try {
-        const { data } = await axios.get(`/api/products?category=${categoryName}`)
-        return dispatch({
-            type: PRODUCTS_LIST_SUCCESS,
-            payload: data,
-        })
-    } catch (error) {
-        return dispatch({
-            type: PRODUCTS_LIST_FAIL,
-            payload: error.message,
-        })
-    }
-
-}
+  dispatch({ type: PRODUCT_LIST_REQUEST });
+  try {
+    const { data } = await axios.get(`/api/products?category=${categoryName}`);
+    return dispatch({
+      type: PRODUCT_LIST_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    return dispatch({
+      type: PRODUCT_LIST_FAIL,
+      payload: error.message,
+    });
+  }
+};

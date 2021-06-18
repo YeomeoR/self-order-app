@@ -4,9 +4,9 @@ import {
   CATEGORY_LIST_FAIL,
   CATEGORY_LIST_REQUEST,
   ORDER_SET_TYPE,
-  PRODUCTS_LIST_REQUEST,
-  PRODUCTS_LIST_SUCCESS,
-  PRODUCTS_LIST_FAIL,
+  PRODUCT_LIST_REQUEST,
+  PRODUCT_LIST_SUCCESS,
+  PRODUCT_LIST_FAIL,
 } from './constants';
 
 export const Store = createContext();
@@ -35,20 +35,20 @@ function reducer(state, action) {
         ...state,
         categoryList: { loading: false, categories: action.payload },
       };
-    case PRODUCTS_LIST_REQUEST:
+    case PRODUCT_LIST_REQUEST:
       return {
         ...state,
-        productsList: { loading: true },
+        productList: { loading: true },
       };
-    case PRODUCTS_LIST_SUCCESS:
+    case PRODUCT_LIST_SUCCESS:
       return {
         ...state,
-        productsList: { loading: false, products: action.payload },
+        productList: { loading: false, products: action.payload },
       };
-    case PRODUCTS_LIST_FAIL:
+    case PRODUCT_LIST_FAIL:
       return {
         ...state,
-        productsList: { loading: false, products: action.payload },
+        productList: { loading: false, products: action.payload },
       };
     case ORDER_SET_TYPE:
       return {
